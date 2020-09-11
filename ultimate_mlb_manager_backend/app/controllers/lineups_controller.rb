@@ -1,5 +1,5 @@
-class LineupController < ApplicationController
-    before_action :get_lineup, only :show
+class LineupsController < ApplicationController
+    # before_action :get_lineup, only :show
     def index 
         lineups = Lineup.all
         render json: lineups
