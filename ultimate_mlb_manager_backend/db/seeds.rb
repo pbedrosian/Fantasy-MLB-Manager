@@ -43,37 +43,46 @@ dodgers.each do |p|
     )
     player.save
 
-    #stats data 
-    avg = p["stats"]["batting"]["battingAvg"]
-    runs = p["stats"]["batting"]["runs"]
-    hits = p["stats"]["batting"]["hits"]
-    hr = p["stats"]["batting"]["homeruns"]
-    rbi = p["stats"]["batting"]["runsBattedIn"]
-    obp = p["stats"]["batting"]["batterOnBasePct"]
-    sp = p["stats"]["batting"]["batterSluggingPct"]
+    if player.primary_position == "P"
+        
+        #pitching stats data
+        w = p["stats"]["pitching"]["wins"]
+        l = p["stats"]["pitching"]["losses"]
+        era = p["stats"]["pitching"]["earnedRunAvg"]
+        so = p["stats"]["pitching"]["shutouts"]
+        saves = p["stats"]["pitching"]["saves"]
+        whip = p["stats"]["pitching"]["walksAndHitsPerInningPitched"]
 
-    w = p["stats"]["pitching"]["wins"]
-    l = p["stats"]["pitching"]["losses"]
-    era = p["stats"]["pitching"]["earnedRunAvg"]
-    so = p["stats"]["pitching"]["shutouts"]
-    saves = p["stats"]["pitching"]["saves"]
-    whip = p["stats"]["pitching"]["walksAndHitsPerInningPitched"]
+        pitching_data = player.pitching_stats.new(
+            wins: w,
+            losses: l,
+            era: era,
+            strike_outs: so,
+            saves: saves,
+            whip: whip
+        )
+        pitching_data.save
+    else 
 
-    stats = player.stats.new(
-    batting_avg: avg,
-    runs: runs,
-    hits: hits,
-    homeruns: hr,
-    runs_batted_in: rbi,
-    on_base_pct: obp,
-    slugging_pct: sp,
-    wins: w,
-    losses: l,
-    earn_run_average: era,
-    strike_outs: so,
-    saves: saves,
-    whip: whip
-    )
+        #batting stats data 
+        avg = p["stats"]["batting"]["battingAvg"]
+        runs = p["stats"]["batting"]["runs"]
+        hits = p["stats"]["batting"]["hits"]
+        hr = p["stats"]["batting"]["homeruns"]
+        rbi = p["stats"]["batting"]["runsBattedIn"]
+        obp = p["stats"]["batting"]["batterOnBasePct"]
+        sp = p["stats"]["batting"]["batterSluggingPct"]
 
-    stats.save
+        batting_data = player.batting_stats.new(
+            avg: avg,
+            runs: runs,
+            hits: hits,
+            homeruns: hr,
+            runs_batted_in: rbi,
+            on_base_pct: obp,
+            slugging_pct: sp
+            ) 
+        batting_data.save
+    end
+
 end

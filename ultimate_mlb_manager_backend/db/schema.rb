@@ -10,6 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_09_11_013710) do
 
+  create_table "batting_stats", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "runs", default: 0
+    t.integer "hits", default: 0
+    t.integer "homeruns", default: 0
+    t.integer "runs_batted_in", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.float "avg", default: 0.0
+    t.float "on_base_pct", default: 0.0
+    t.float "slugging_pct", default: 0.0
+    t.index ["player_id"], name: "index_batting_stats_on_player_id"
+  end
+
+  create_table "lineups", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "first_player_id"
+    t.integer "second_player_id"
+    t.integer "third_player_id"
+    t.integer "fourth_player_id"
+    t.integer "fifth_player_id"
+    t.integer "sixth_player_id"
+    t.integer "seventh_player_id"
+    t.integer "eighth_player_id"
+    t.integer "nineth_layer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pitching_stats", force: :cascade do |t|
+    t.integer "player_id"
+    t.integer "wins", default: 0
+    t.integer "losses", default: 0
+    t.integer "strike_outs", default: 0
+    t.integer "saves", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.float "era", default: 0.0
+    t.float "whip", default: 0.0
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "primary_position"
+    t.integer "number"
+    t.string "current_team"
+    t.string "bats"
+    t.string "throws"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "batting_stats", "players"
 end
