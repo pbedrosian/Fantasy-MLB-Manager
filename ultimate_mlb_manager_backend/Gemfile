@@ -29,7 +29,18 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 
 #DotENV for holding private API keys
-gem 'dotenv'
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'pry'
+
+gem 'httparty'
+
+gem 'mysportsfeeds', '~> 0.1.0'
+
+gem 'date'
+
+gem 'pry-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
