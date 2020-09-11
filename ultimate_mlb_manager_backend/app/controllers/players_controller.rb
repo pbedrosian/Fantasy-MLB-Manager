@@ -1,13 +1,23 @@
 class PlayersController < ApplicationController
+    before_action :set_player, only: :show
 
     def home
-        render json: "this is home"
-        url = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
-        info = HTTParty.get(url)
-        dodgers = info["playerStatsTotals"].select do |p|
-            p["team"]["abbreviation"] == 'LAD' 
-        end
-        binding.pry
+        render json: Player.find_by_id(3).stats
+    end
+
+    def index
+        players = Player.all
+
+        render json: players
+    end
+
+    def show
+        render json: @player
+    end
+
+    private
+    def set_player
+        @player = Player.find_by_id(params[:id])
     end
 
 end
