@@ -6,13 +6,39 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-url = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
-info = HTTParty.get(url)
+# Player.delete_all
+# Game.delete_all
+# BattingStat.delete_all
+# PitchingStat.delete_all
+# Lineup.delete_all
 
-dodgers = info["playerStatsTotals"].select do |p|
+players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
+games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
+
+game_data = HTTParty.get(games)
+
+game_data["games"].each do |g|
+    if g["schedule"]["awayTeam"]["abbreviation"] == "LAD"
+        versus = g["schedule"]["homeTeam"]["abbreviation"]
+        home_game = false
+    else g["schedule"]["awayTeam"]["abbreviation"] == "LAD"
+        versus = g["schedule"]["awayTeam"]["abbreviation"]
+        home_game = true
+    end
+
+    date = g["schedule"]["startTime"]
+
+    game = Game.new(team_against: versus, home_game: home_game, date: date)
+    game.save(validate: false)
+end
+
+player_data = HTTParty.get(players)
+
+dodgers = player_data["playerStatsTotals"].select do |p|
     p["team"]["abbreviation"] == 'LAD' 
 end
 
+#Start of seeind players
 dodgers.each do |p|
 
     # player data
@@ -86,3 +112,8 @@ dodgers.each do |p|
     end
 
 end
+
+#end of players seed loop
+
+
+

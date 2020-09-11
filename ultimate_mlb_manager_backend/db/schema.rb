@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_013710) do
+ActiveRecord::Schema.define(version: 2020_09_11_164205) do
 
   create_table "batting_stats", force: :cascade do |t|
     t.integer "player_id", null: false
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2020_09_11_013710) do
     t.float "on_base_pct", default: 0.0
     t.float "slugging_pct", default: 0.0
     t.index ["player_id"], name: "index_batting_stats_on_player_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "team_against"
+    t.boolean "home_game"
+    t.string "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "lineups", force: :cascade do |t|

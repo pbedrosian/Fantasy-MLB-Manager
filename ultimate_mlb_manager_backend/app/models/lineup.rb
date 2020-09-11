@@ -1,5 +1,4 @@
 class Lineup < ApplicationRecord
-    # has_and_belongs_to_many :players
 
     belongs_to :first_player, class_name: "Player"
     belongs_to :second_player, class_name: "Player"
@@ -10,4 +9,11 @@ class Lineup < ApplicationRecord
     belongs_to :seventh_player, class_name: "Player"
     belongs_to :eighth_player, class_name: "Player"
     belongs_to :nineth_player, class_name: "Player"
+
+    # def get_att
+    #     self.attributes.map do |k,v| 
+    #         self.send(k.sub("_id","").to_sym) if k.include?("_id") && k.include?("_player")
+    #     end
+    # end
+
 end
