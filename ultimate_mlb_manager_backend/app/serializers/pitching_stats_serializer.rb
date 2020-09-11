@@ -1,4 +1,4 @@
 class PitchingStatsSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :only [:era, :wins, :losses, :strike_outs, saves, :whip]
   belongs_to :player
 end

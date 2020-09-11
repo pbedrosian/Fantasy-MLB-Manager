@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'players#home'
 
   resources :players, only: [:index, :show]
+  resources :lineups
+
 end
