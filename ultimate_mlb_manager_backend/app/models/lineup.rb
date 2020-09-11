@@ -1,5 +1,6 @@
 class Lineup < ApplicationRecord
-
+    belongs_to :game
+    
     belongs_to :first_player, class_name: "Player"
     belongs_to :second_player, class_name: "Player"
     belongs_to :third_player, class_name: "Player"
@@ -10,10 +11,10 @@ class Lineup < ApplicationRecord
     belongs_to :eighth_player, class_name: "Player"
     belongs_to :nineth_player, class_name: "Player"
 
-    # def get_att
-    #     self.attributes.map do |k,v| 
-    #         self.send(k.sub("_id","").to_sym) if k.include?("_id") && k.include?("_player")
-    #     end
-    # end
+    def get_att
+        self.attributes.map do |k,v| 
+            self.send(k.sub("_id","").to_sym) if k.include?("_id") && k.include?("_player")
+        end
+    end
 
 end

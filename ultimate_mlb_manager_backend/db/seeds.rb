@@ -15,6 +15,8 @@
 players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
 games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
 
+#start of games seed
+
 game_data = HTTParty.get(games)
 
 game_data["games"].each do |g|
@@ -31,6 +33,8 @@ game_data["games"].each do |g|
     game = Game.new(team_against: versus, home_game: home_game, date: date)
     game.save(validate: false)
 end
+
+#end of games seed
 
 player_data = HTTParty.get(players)
 

@@ -22,6 +22,7 @@ class LineupsController < ApplicationController
 
     def lineup_params
         params.require(:lineup).permit(
+            :game_id,
             :first_player_id,
             :second_player_id,
             :third_player_id,
