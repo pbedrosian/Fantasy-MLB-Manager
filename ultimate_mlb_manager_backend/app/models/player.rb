@@ -1,6 +1,5 @@
 class Player < ApplicationRecord
-    # has_many :pitching_stats
-    # has_many :batting_stats
+
     has_many :stats
 
     has_and_belongs_to_many :games
@@ -15,13 +14,5 @@ class Player < ApplicationRecord
     has_and_belongs_to_many :eighth_players, class_name: "Lineup", foreign_key: "eighth_player_id"
     has_and_belongs_to_many :nineth_players, class_name: "Lineup", foreign_key: "nineth_player_id"
     
-
-    # def stats
-    #     if self.pitching_stats.empty?
-    #         self.batting_stats
-    #     else
-    #         self.pitching_stats
-    #     end
-    # end
 end
 

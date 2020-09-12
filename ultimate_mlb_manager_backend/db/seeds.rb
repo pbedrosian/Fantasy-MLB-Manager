@@ -117,7 +117,5 @@ dodgers.each do |p|
             slugging_pct: sp
         )
         stats.save
-
-
-
+        
 end
