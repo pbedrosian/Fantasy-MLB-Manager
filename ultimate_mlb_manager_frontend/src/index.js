@@ -3,4 +3,7 @@ const PLAYERS = BASE_URL + "/players",
  LINEUPS = BASE_URL + "/lineups", 
  GAMES = BASE_URL + "/games"
 
- 
+ document.addEventListener('DOMContentLoaded', function() {
+    alert('I am here')
+    
+  })

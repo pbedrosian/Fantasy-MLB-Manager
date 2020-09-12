@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_164205) do
-
-  create_table "batting_stats", force: :cascade do |t|
-    t.integer "player_id", null: false
-    t.integer "runs", default: 0
-    t.integer "hits", default: 0
-    t.integer "homeruns", default: 0
-    t.integer "runs_batted_in", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.float "avg", default: 0.0
-    t.float "on_base_pct", default: 0.0
-    t.float "slugging_pct", default: 0.0
-    t.index ["player_id"], name: "index_batting_stats_on_player_id"
-  end
+ActiveRecord::Schema.define(version: 2020_09_12_015803) do
 
   create_table "games", force: :cascade do |t|
     t.string "team_against"
@@ -49,18 +35,6 @@ ActiveRecord::Schema.define(version: 2020_09_11_164205) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pitching_stats", force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "wins", default: 0
-    t.integer "losses", default: 0
-    t.integer "strike_outs", default: 0
-    t.integer "saves", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.float "era", default: 0.0
-    t.float "whip", default: 0.0
-  end
-
   create_table "players", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -74,5 +48,25 @@ ActiveRecord::Schema.define(version: 2020_09_11_164205) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "batting_stats", "players"
+  create_table "stats", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.float "avg", default: 0.0
+    t.integer "runs", default: 0
+    t.integer "hits", default: 0
+    t.integer "homeruns", default: 0
+    t.integer "rbi", default: 0
+    t.float "on_base_pct", default: 0.0
+    t.float "slugging_pct", default: 0.0
+    t.integer "wins", default: 0
+    t.integer "losses", default: 0
+    t.float "era", default: 0.0
+    t.integer "strike_outs", default: 0
+    t.integer "saves", default: 0
+    t.float "whip", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_stats_on_player_id"
+  end
+
+  add_foreign_key "stats", "players"
 end

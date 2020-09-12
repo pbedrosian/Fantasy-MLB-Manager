@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
     before_action :set_player, only: :show
 
     def home
-        url = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
+        url = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json?team=lad"
         info = HTTParty.get(url)
         binding.pry
         render json: info

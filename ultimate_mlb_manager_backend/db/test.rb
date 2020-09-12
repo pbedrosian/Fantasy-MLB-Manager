@@ -1,5 +1,16 @@
-Player.delete_all
-Stat.delete_all
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+# Player.delete_all
+# Game.delete_all
+# BattingStat.delete_all
+# PitchingStat.delete_all
+# Lineup.delete_all
 
 players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
 games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
@@ -79,7 +90,7 @@ dodgers.each do |p|
         rbi = p["stats"]["batting"]["runsBattedIn"] 
         obp = p["stats"]["batting"]["batterOnBasePct"] 
         sp = p["stats"]["batting"]["batterSluggingPct"] 
-        # binding.pry
+
 
     else 
 
@@ -99,25 +110,29 @@ dodgers.each do |p|
         saves = nil
         whip = nil
 
+
     end
 
     stats = player.stats.new(
-            wins: w,
-            losses: l,
-            era: era,
-            strike_outs: so,
-            saves: saves,
-            whip: whip,
-            avg: avg,
-            runs: runs,
-            hits: hits,
-            homeruns: hr,
-            rbi: rbi,
-            on_base_pct: obp,
-            slugging_pct: sp
-        )
-        stats.save
-
-
+        wins: w,
+        losses: l,
+        era: era,
+        strike_outs: so,
+        saves: saves,
+        whip: whip,
+        avg: avg,
+        runs: runs,
+        hits: hits,
+        homeruns: hr,
+        runs_batted_in: rbi,
+        on_base_pct: obp,
+        slugging_pct: sp
+    )
+    stats.save
 
 end
+
+#end of players seed loop
+
+
+
