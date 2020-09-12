@@ -1,7 +1,6 @@
 class Lineup < ApplicationRecord
     belongs_to :game
-    belongs_to :player
-    
+
     belongs_to :first_player, class_name: "Player"
     belongs_to :second_player, class_name: "Player"
     belongs_to :third_player, class_name: "Player"
