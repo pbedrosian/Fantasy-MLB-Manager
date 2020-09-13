@@ -1,7 +1,8 @@
 const BASE_URL = "http://localhost:3000"
 const PLAYERS = BASE_URL + "/players", 
  LINEUPS = BASE_URL + "/lineups", 
- GAMES = BASE_URL + "/games"
+ GAMES = BASE_URL + "/games", 
+ SEARCH = BASE_URL + '/players/search/'
 
 document.addEventListener('DOMContentLoaded', loadPlayers)
 

@@ -107,9 +107,7 @@ function addToLineup (e) {
     console.log(e.target.parentElement.firstChild.innerText)
 }
 
-function playerSearch() {
-  
-}
+
  
 
  
