@@ -12,16 +12,26 @@
 </head>
 
 <body>
+  <div class="topnav">
+    <a class="active" href="#home">All Players</a>
+    <a href="#news">P</a>
+    <a href="#news">C</a>
+    <a href="#contact">1B</a>
+    <a href="#contact">2B</a>
+    <a href="#contact">3B</a>
+    <a href="#contact">SS</a>
+    <a href="#contact">LF</a>
+    <a href="#contact">CF</a>
+    <a href="#contact">RF</a>
+    <a href="#about" onclick="openNav()" style="float: right">View Lineup</a>
+  </div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ol id='playerList'>
 
     </ol>
   </div>
-  
-  
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; View Lineup</span>
-  
+    
   <script>
   function openNav() {
     document.getElementById("mySidenav").style.width = "20%";
