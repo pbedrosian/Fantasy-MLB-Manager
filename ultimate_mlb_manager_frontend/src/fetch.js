@@ -5,7 +5,7 @@ function loadPlayers() {
     .then(responce => responce.json()).then(values => renderPlayerCards(values))
    }
 
-function filterPitchers() {
+function filterPlayers() {
     fetch(PLAYERS)
     .then(responce => responce.json()).then(values => renderPlayerCards(values))
 }

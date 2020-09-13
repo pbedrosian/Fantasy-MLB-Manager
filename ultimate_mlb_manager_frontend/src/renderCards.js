@@ -106,6 +106,10 @@ function addToLineup (e) {
     e.target.innerText = 'In Lineup'
     console.log(e.target.parentElement.firstChild.innerText)
 }
+
+function playerSearch() {
+  
+}
  
 
  

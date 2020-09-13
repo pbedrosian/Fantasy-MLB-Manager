@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :lineups
 
   get '/games', to: 'games#index'
+  get '/players/search/:position', to: 'players#search'
+
 
 end

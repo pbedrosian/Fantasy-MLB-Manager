@@ -15,6 +15,11 @@ class PlayersController < ApplicationController
         render json: @player
     end
 
+    def search
+        players = Player.search(params)
+        render json: players
+    end
+
     private
     def set_player
         @player = Player.find_by_id(params[:id])

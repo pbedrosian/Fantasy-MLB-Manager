@@ -14,5 +14,9 @@ class Player < ApplicationRecord
     has_many :eighth_players, class_name: "Lineup", foreign_key: "eighth_player_id"
     has_many :nineth_players, class_name: "Lineup", foreign_key: "nineth_player_id"
     
+    def self.search(params)
+        players = Player.select {|p| p.primary_position == params[:position].upcase}
+    end
+
 end
 

@@ -5,7 +5,6 @@ const PLAYERS = BASE_URL + "/players",
 
 document.addEventListener('DOMContentLoaded', loadPlayers)
 
-// document.getElementById
 
 
 
