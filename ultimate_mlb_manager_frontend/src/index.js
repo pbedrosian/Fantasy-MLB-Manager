@@ -3,11 +3,10 @@ const PLAYERS = BASE_URL + "/players",
  LINEUPS = BASE_URL + "/lineups", 
  GAMES = BASE_URL + "/games"
 
-const bodySection = document.querySelector('body')
+document.addEventListener('DOMContentLoaded', loadPlayers)
 
-const cardDiv = document.createElement('div')
-cardDiv.setAttribute('id', 'cards')
+// document.getElementById
 
- document.addEventListener('DOMContentLoaded', loadPlayers)
+
 
  

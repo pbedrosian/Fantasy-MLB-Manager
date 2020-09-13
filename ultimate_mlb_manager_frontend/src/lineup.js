@@ -4,5 +4,7 @@ class Team {
         this._game_id = game_id
     } 
 
-    
+    save(arr) {
+
+    }
 }

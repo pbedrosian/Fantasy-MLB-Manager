@@ -1,3 +1,9 @@
+const bodySection = document.querySelector('body')
+
+const cardDiv = document.createElement('div')
+cardDiv.setAttribute('id', 'cards')
+
+
 function renderPlayerCards(arr) {
     for (const player of arr) {
   
@@ -48,9 +54,11 @@ function renderPlayerCards(arr) {
       button.innerText = 'Add To Lineup'
       button.setAttribute('class', 'myBtn')
       button.setAttribute('id', player.id)
+      button.addEventListener('click', addToLineup) // calls finction within the addPlayer.js file
 
 
       figcaption.appendChild(button)
+
   
     }
    }
@@ -60,17 +68,44 @@ function renderPlayerCards(arr) {
       let tr = document.createElement('tr')
       let th = document.createElement('th')
       let td = document.createElement('td')
+      let space = document.createElement('td')
+      let dash = document.createElement('td')
+      let spaceOne = document.createElement('td')
       
       th.innerText = stat[0]
       td.innerText = stat[1]
+      dash.innerText = '-'
       td.setAttribute('style', 'float: right') 
 
       tr.appendChild(th)
+      tr.appendChild(space)
+      tr.appendChild(dash)
+      tr.appendChild(spaceOne)
       tr.appendChild(td)
 
       table.appendChild(tr)
 
     }
  }
+
+const players = []
+
+// Added player to lineup menu
+
+function addToLineup (e) {
+    e.preventDefault()
+    const player = document.createElement('li')
+
+    players.push(e.target.id)
+
+    player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
+
+    document.getElementById('playerList').appendChild(player)
+
+    e.target.disabled = true;
+    e.target.innerText = 'In Lineup'
+    console.log(e.target.parentElement.firstChild.innerText)
+}
+ 
 
  
