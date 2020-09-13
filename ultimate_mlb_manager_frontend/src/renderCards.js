@@ -2,7 +2,7 @@ function renderPlayerCards(arr) {
     for (const player of arr) {
   
       const figure = document.createElement('figure')
-      figure.setAttribute('class', 'card card--normal')
+      figure.setAttribute('class', 'card card--water')
   
       const imageDiv = document.createElement('div')
       imageDiv.setAttribute('class', 'card__image-container')
@@ -43,6 +43,14 @@ function renderPlayerCards(arr) {
       // tableBody.appendChild(tr1) // how to append 
        
       document.querySelector('body').appendChild(cardDiv)
+
+      const button = document.createElement('button')
+      button.innerText = 'Add To Lineup'
+      button.setAttribute('class', 'myBtn')
+      button.setAttribute('id', player.id)
+
+
+      figcaption.appendChild(button)
   
     }
    }
@@ -52,9 +60,10 @@ function renderPlayerCards(arr) {
       let tr = document.createElement('tr')
       let th = document.createElement('th')
       let td = document.createElement('td')
-
+      
       th.innerText = stat[0]
       td.innerText = stat[1]
+      td.setAttribute('style', 'float: right') 
 
       tr.appendChild(th)
       tr.appendChild(td)
@@ -63,3 +72,5 @@ function renderPlayerCards(arr) {
 
     }
  }
+
+ 

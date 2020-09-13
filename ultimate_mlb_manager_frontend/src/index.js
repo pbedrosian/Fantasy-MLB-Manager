@@ -9,3 +9,5 @@ const cardDiv = document.createElement('div')
 cardDiv.setAttribute('id', 'cards')
 
  document.addEventListener('DOMContentLoaded', loadPlayers)
+
+ 
