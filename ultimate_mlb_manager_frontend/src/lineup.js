@@ -1,10 +1,11 @@
-class Team {
-    constructor(manager, game_id) {
-        this._manager = manager 
-        this._game_id = game_id
-    } 
+class Lineup {
 
-    save(arr) {
-
+    constructor(name, player_id) {
+        this.name = name
+        this.player_id = player_id
+    }
+ 
+    static save(arr) {
+        console.log('This is a instace method of the Lineup class')    
     }
 }

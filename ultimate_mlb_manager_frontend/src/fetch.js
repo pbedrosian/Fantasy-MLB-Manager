@@ -6,6 +6,7 @@ function loadPlayers() {
    }
 
 function filterPlayers(e) {
+    document.getElementById('cards').querySelectorAll('*').forEach(n => n.remove());
     fetch(SEARCH + e)
-    .then(responce => responce.json()).then(values => console.log(values))
+    .then(responce => responce.json()).then(values => renderPlayerCards(values))
 }

@@ -6,6 +6,8 @@ cardDiv.setAttribute('id', 'cards')
 
 function renderPlayerCards(arr) {
     for (const player of arr) {
+      
+      let newPlayer = new Player (player.first_name, player.last_name, player.id)
   
       const figure = document.createElement('figure')
       figure.setAttribute('class', 'card card--water')
@@ -22,7 +24,7 @@ function renderPlayerCards(arr) {
   
       const nameHeader = document.createElement('h1')
       nameHeader.setAttribute('class', 'card__name')
-      nameHeader.innerText = `${player.first_name} ${player.last_name}`
+      nameHeader.innerText = `${newPlayer.fullName()}`
   
       const postition = document.createElement('h3')
       postition.setAttribute('class', 'card__type')
@@ -45,9 +47,7 @@ function renderPlayerCards(arr) {
       figcaption.appendChild(postition)
       figcaption.appendChild(table)
       table.appendChild(tableBody)
-  
-      // tableBody.appendChild(tr1) // how to append 
-       
+         
       document.querySelector('body').appendChild(cardDiv)
 
       const button = document.createElement('button')
@@ -98,6 +98,8 @@ function addToLineup (e) {
 
     players.push(e.target.id)
 
+    // let addedPlayer = new Player(player.first_name)
+
     player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
 
     document.getElementById('playerList').appendChild(player)
@@ -105,6 +107,11 @@ function addToLineup (e) {
     e.target.disabled = true;
     e.target.innerText = 'In Lineup'
     console.log(e.target.parentElement.firstChild.innerText)
+}
+
+function getAllPlayers() {
+  document.getElementById('cards').querySelectorAll('*').forEach(n => n.remove());
+  loadPlayers()
 }
 
 

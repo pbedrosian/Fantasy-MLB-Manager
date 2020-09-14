@@ -4,16 +4,16 @@
   <title>Ultimate MLB Manager </title>
   <link href="style.css" media="screen" rel="stylesheet" />
   <link href="menu.css" media="screen" rel="stylesheet" />
+  <script type="text/javascript" src="src/lineup.js"></script>
+  <script type="text/javascript" src="src/player.js"></script>
   <script type="text/javascript" src="src/fetch.js"></script>
-  <script type="text/javascript" src="src/addPlayer.js"></script>
-
   <script type="text/javascript" src="src/index.js"></script>
   <script type="text/javascript" src="src/renderCards.js"></script>
 </head>
 
 <body>
   <div class="topnav">
-    <a class="active" href="#home">All Players</a>
+    <a class="active" onclick="getAllPlayers()">All Players</a>
     <a onclick="filterPlayers('P')">P</a>
     <a onclick="filterPlayers('C')">C</a>
     <a onclick="filterPlayers('1B')">1B</a>
@@ -23,15 +23,20 @@
     <a onclick="filterPlayers('LF')">LF</a>
     <a onclick="filterPlayers('CF')">CF</a>
     <a onclick="filterPlayers('RF')">RF</a>
-    <a onclick="openNav()" style="float: right">View Lineup</a>
+    <a style="float:right">Past Lineups </a>
+    <a onclick="openNav()" style="float: right">Current Lineup</a>
   </div>
+  <br>
+  <img src="assets/images/dodgers_logo.png">
+
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ol id='playerList'>
 
     </ol>
+    <a>Save Lineup</a>
   </div>
-    
+  
   <script>
   function openNav() {
     document.getElementById("mySidenav").style.width = "20%";

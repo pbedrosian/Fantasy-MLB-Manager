@@ -1,5 +1,6 @@
-Player.delete_all
-Stat.delete_all
+# Player.delete_all
+# Stat.delete_all
+# Game.delete_all
 
 players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
 games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
@@ -45,7 +46,7 @@ dodgers.each do |p|
     throws = p["player"]["handedness"]["throws"]
 
     if p["player"]["officialImageSrc"] == nil
-        image = "https://ibb.co/9HVY1QD"
+        image = "assets/images/blank-profile-picture.jpg"
     else
         image = p["player"]["officialImageSrc"]
     end
