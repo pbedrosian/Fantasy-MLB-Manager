@@ -96,22 +96,32 @@ function addToLineup (e) {
     e.preventDefault()
     const player = document.createElement('li')
 
-    players.push(e.target.id)
-
-    // let addedPlayer = new Player(player.first_name)
-
-    player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
-
-    document.getElementById('playerList').appendChild(player)
-
-    e.target.disabled = true;
-    e.target.innerText = 'In Lineup'
-    console.log(e.target.parentElement.firstChild.innerText)
+    if (players.length < 9) {
+      players.push(e.target.id)
+      player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
+      document.getElementById('playerList').appendChild(player)
+      e.target.disabled = true;
+      e.target.innerText = 'In Lineup'
+      console.log(e.target.parentElement.firstChild.innerText)
+    } else {
+      console.log('You have maxed your lineup')
+      maxLineup()
+    };
+  
 }
 
 function getAllPlayers() {
   document.getElementById('cards').querySelectorAll('*').forEach(n => n.remove());
   loadPlayers()
+}
+
+function maxLineup() {
+  if (confirm("You have maxed your lineup. Do you want to submit it now?")) {
+    console.log("Lineup for ADD GAME has been submitted.")
+    openNav()
+  } else {
+    console.log("Canceleld submit.")
+  }
 }
 
 
