@@ -18,5 +18,13 @@ class Player < ApplicationRecord
         players = Player.select {|p| p.primary_position == params[:position].upcase}
     end
 
+    def self.update
+        api = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json?team=lad"
+        player_data = HTTParty.get(api)
+        
+        
+
+    end
+
 end
 

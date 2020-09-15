@@ -6,8 +6,14 @@ cardDiv.setAttribute('id', 'cards')
 
 function renderPlayerCards(arr) {
     for (const player of arr) {
-      
-      let newPlayer = new Player (player.first_name, player.last_name, player.id)
+  
+      let [id, firstName, lastName, primary_position, number, bats, throws, image] = Object.values(player)
+      let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+
+      let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
+        avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip)
+
+      debugger
   
       const figure = document.createElement('figure')
       figure.setAttribute('class', 'card card--water')
@@ -16,7 +22,7 @@ function renderPlayerCards(arr) {
       imageDiv.setAttribute('class', 'card__image-container')
   
       const playerImg = document.createElement('img')
-      playerImg.src = player.image_url
+      playerImg.src = image
       playerImg.setAttribute('class', 'card__image')
   
       const figcaption = document.createElement('figcaption')
@@ -28,7 +34,7 @@ function renderPlayerCards(arr) {
   
       const postition = document.createElement('h3')
       postition.setAttribute('class', 'card__type')
-      postition.innerText = player.primary_position
+      postition.innerText = primary_position
   
   
       // creates the table for stats
@@ -54,7 +60,7 @@ function renderPlayerCards(arr) {
       button.innerText = 'Add To Lineup'
       button.setAttribute('class', 'myBtn')
       button.setAttribute('id', player.id)
-      button.addEventListener('click', addToLineup) // calls finction within the addPlayer.js file
+      button.addEventListener('click', addToLineup) // calls below function
 
 
       figcaption.appendChild(button)
@@ -94,6 +100,7 @@ const players = []
 
 function addToLineup (e) {
     e.preventDefault()
+    // debugger
     const player = document.createElement('li')
 
     if (players.length < 9) {
@@ -117,10 +124,10 @@ function getAllPlayers() {
 
 function maxLineup() {
   if (confirm("You have maxed your lineup. Do you want to submit it now?")) {
-    console.log("Lineup for ADD GAME has been submitted.")
+    console.log("Lineup for ```ADD GAME``` has been submitted.")
     openNav()
   } else {
-    console.log("Canceleld submit.")
+    console.log("Cancelled submit.")
   }
 }
 

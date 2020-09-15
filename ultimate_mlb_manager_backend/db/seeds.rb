@@ -2,7 +2,7 @@
 # Stat.delete_all
 # Game.delete_all
 
-players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json"
+players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json?team=lad"
 games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
 
 #start of games seed
@@ -26,11 +26,11 @@ end
 
 #end of games seed
 
-player_data = HTTParty.get(players)
+dodgers = HTTParty.get(players)
 
-dodgers = player_data["playerStatsTotals"].select do |p|
-    p["team"]["abbreviation"] == 'LAD' 
-end
+# dodgers = player_data["playerStatsTotals"].select do |p|
+#     p["team"]["abbreviation"] == 'LAD' 
+# end
 
 #Start of seeind players
 dodgers.each do |p|

@@ -10,3 +10,7 @@ function filterPlayers(e) {
     fetch(SEARCH + e)
     .then(responce => responce.json()).then(values => renderPlayerCards(values))
 }
+
+function addLineup() {
+    
+}

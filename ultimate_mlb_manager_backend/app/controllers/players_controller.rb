@@ -25,4 +25,8 @@ class PlayersController < ApplicationController
         @player = Player.find_by_id(params[:id])
     end
 
+    def update_stats
+
+    end
+
 end
