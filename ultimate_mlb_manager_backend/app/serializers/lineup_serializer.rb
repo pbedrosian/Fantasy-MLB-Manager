@@ -9,5 +9,5 @@ class LineupSerializer < ActiveModel::Serializer
   belongs_to :sixth_player
   belongs_to :seventh_player
   belongs_to :eighth_player
-  belongs_to :nineth_player
+  belongs_to :ninth_player
 end

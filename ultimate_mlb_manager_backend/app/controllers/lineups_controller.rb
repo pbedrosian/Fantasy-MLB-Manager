@@ -11,8 +11,6 @@ class LineupsController < ApplicationController
 
     def create
         new_lineup = Lineup.new(lineups_params)
-        binding.pry
-
         new_lineup.save
     end
 

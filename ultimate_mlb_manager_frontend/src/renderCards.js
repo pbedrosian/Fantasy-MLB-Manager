@@ -3,16 +3,23 @@ const bodySection = document.querySelector('body')
 const cardDiv = document.createElement('div')
 cardDiv.setAttribute('id', 'cards')
 
+function createAndDisplayPlayers(arr) {
+  for (const player of arr) {
+    let [id, firstName, lastName, primary_position, number, bats, throws, image] = Object.values(player)
+    let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+
+    let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
+    avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip) 
+  }
+  renderPlayerCards(Player.allPlayers)
+}
+
 
 function renderPlayerCards(arr) {
     for (const player of arr) {
   
-      let [id, firstName, lastName, primary_position, number, bats, throws, image] = Object.values(player)
-      let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+      let [id, firstName, lastName, primary_position, number, bats, throws, image, avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip ] = Object.values(player)
 
-      let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
-      avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip)
-  
       const figure = document.createElement('figure')
       figure.setAttribute('class', `card card--player` )
       figure.setAttribute('id', primary_position)
@@ -29,7 +36,7 @@ function renderPlayerCards(arr) {
   
       const nameHeader = document.createElement('h1')
       nameHeader.setAttribute('class', 'card__name')
-      nameHeader.innerText = `${newPlayer.fullName()}`
+      nameHeader.innerText = `${player.fullName()}`
   
       const postition = document.createElement('h3')
       postition.setAttribute('class', 'card__type')
@@ -42,7 +49,7 @@ function renderPlayerCards(arr) {
       const tableBody = document.createElement('tbody')
   
   
-      generateStats(Object.entries(player.stats[0]), tableBody)
+      generateStats(player.stats(), tableBody)
   
       cardDiv.appendChild(figure)
       figure.appendChild(imageDiv)

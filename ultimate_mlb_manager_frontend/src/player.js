@@ -32,7 +32,7 @@ class Player {
 
     static filterPlayers(p) {
 
-        this.all()
+        this.showAll()
 
         let search = `.card.card--player:not(#${p})`
         let nodes  = document.querySelectorAll(search)
@@ -42,12 +42,16 @@ class Player {
         }
     }
 
-    static all() {
+    static showAll() {
         let allNodes = document.querySelectorAll('.card.card--player')
 
         for (const n of allNodes) {
             n.removeAttribute('style')
         }
+    }
+
+    stats() {
+        return Object.entries(this).slice(8)
     }
 
 

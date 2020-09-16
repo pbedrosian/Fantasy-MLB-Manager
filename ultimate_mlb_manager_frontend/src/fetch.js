@@ -2,7 +2,7 @@
 
 function loadPlayers() {
     fetch(PLAYERS)
-    .then(responce => responce.json()).then(values => renderPlayerCards(values))
+    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values))
    }
 
 // function addLineup(players) {
@@ -28,7 +28,26 @@ function addLineup(players) {
       if (obj.message){
           alert("This didn't work")
       } else {
-          console.log("Lineup saved successfully")
+          renderPlayerCards(Player.allPlayers)
       }     
   })
 }
+
+// function addPlayer(players) {
+//     fetch(LINEUPS, {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify(players)
+//     }).then(resp => {
+//         return resp.json()
+//     }).then(obj => {
+//         if (obj.message) {
+//             alert(obj.message)
+//         } else {
+//             renderPlayer(obj)
+//         }
+//     })
+// }
