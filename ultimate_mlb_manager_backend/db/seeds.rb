@@ -26,20 +26,26 @@ end
 
 #end of games seed
 
-dodgers = HTTParty.get(players)
+player_data = HTTParty.get(players)
 
-# dodgers = player_data["playerStatsTotals"].select do |p|
-#     p["team"]["abbreviation"] == 'LAD' 
-# end
+dodgers = player_data["playerStatsTotals"].select do |p|
+    p["team"]["abbreviation"] == 'LAD' 
+end
 
 #Start of seeind players
 dodgers.each do |p|
 
     # player data
+    changedBases = ['1B', '2B', '3B']
 
     first_name = p["player"]["firstName"]
     last_name = p["player"]["lastName"]
-    primary_position = p["player"]["primaryPosition"]
+    if changedBases.include?(p["player"]["primaryPosition"])
+        primary_position = p["player"]["primaryPosition"].reverse
+    else
+        primary_position = p["player"]["primaryPosition"]
+    end
+    # primary_position = p["player"]["primaryPosition"]
     number = p["player"]["jerseyNumber"]
     current_team = p["player"]["currentTeam"]["abbreviation"]
     bats = p["player"]["handedness"]["bats"]

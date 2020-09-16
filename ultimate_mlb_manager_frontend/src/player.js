@@ -30,4 +30,26 @@ class Player {
         return `${this.firstName} ${this.lastName}`
     }
 
+    static filterPlayers(p) {
+
+        this.all()
+
+        let search = `.card.card--player:not(#${p})`
+        let nodes  = document.querySelectorAll(search)
+
+        for (const n of nodes ) {
+            n.style.display = "none"
+        }
+    }
+
+    static all() {
+        let allNodes = document.querySelectorAll('.card.card--player')
+
+        for (const n of allNodes) {
+            n.removeAttribute('style')
+        }
+    }
+
+
+
 }

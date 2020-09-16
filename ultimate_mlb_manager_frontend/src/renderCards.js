@@ -12,11 +12,10 @@ function renderPlayerCards(arr) {
 
       let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
         avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip)
-
-      debugger
   
       const figure = document.createElement('figure')
-      figure.setAttribute('class', 'card card--water')
+      figure.setAttribute('class', `card card--player` )
+      figure.setAttribute('id', primary_position)
   
       const imageDiv = document.createElement('div')
       imageDiv.setAttribute('class', 'card__image-container')
@@ -59,7 +58,7 @@ function renderPlayerCards(arr) {
       const button = document.createElement('button')
       button.innerText = 'Add To Lineup'
       button.setAttribute('class', 'myBtn')
-      button.setAttribute('id', player.id)
+      button.setAttribute('id', id)
       button.addEventListener('click', addToLineup) // calls below function
 
 
@@ -94,25 +93,26 @@ function renderPlayerCards(arr) {
     }
  }
 
-const players = []
+const newLineup = []
 
 // Added player to lineup menu
 
 function addToLineup (e) {
     e.preventDefault()
-    // debugger
     const player = document.createElement('li')
 
-    if (players.length < 9) {
-      players.push(e.target.id)
+    if (newLineup.length < 9) {
+      addedPlayer = Player.allPlayers.find(x => x.id == e.target.id)
+      newLineup.push(addedPlayer)
       player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
       document.getElementById('playerList').appendChild(player)
       e.target.disabled = true;
       e.target.innerText = 'In Lineup'
-      console.log(e.target.parentElement.firstChild.innerText)
+      console.log(e.target.parentElement.firstChild.innerText + " - " + e.target.id)
     } else {
       console.log('You have maxed your lineup')
       maxLineup()
+      console.log(newLineup)
     };
   
 }
