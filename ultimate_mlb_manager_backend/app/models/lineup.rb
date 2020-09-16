@@ -9,7 +9,7 @@ class Lineup < ApplicationRecord
     belongs_to :sixth_player, class_name: "Player"
     belongs_to :seventh_player, class_name: "Player"
     belongs_to :eighth_player, class_name: "Player"
-    belongs_to :nineth_player, class_name: "Player"
+    belongs_to :ninth_player, class_name: "Player"
 
     def get_att
         self.attributes.map do |k,v| 

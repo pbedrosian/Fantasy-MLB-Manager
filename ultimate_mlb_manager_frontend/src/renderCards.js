@@ -11,7 +11,7 @@ function renderPlayerCards(arr) {
       let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
 
       let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
-        avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip)
+      avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip)
   
       const figure = document.createElement('figure')
       figure.setAttribute('class', `card card--player` )
@@ -102,8 +102,8 @@ function addToLineup (e) {
     const player = document.createElement('li')
 
     if (newLineup.length < 9) {
-      addedPlayer = Player.allPlayers.find(x => x.id == e.target.id)
-      newLineup.push(addedPlayer)
+      // addedPlayer = Player.allPlayers.find(x => x.id == e.target.id)
+      newLineup.push(parseInt(e.target.id))
       player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
       document.getElementById('playerList').appendChild(player)
       e.target.disabled = true;

@@ -10,7 +10,7 @@ class CreateLineups < ActiveRecord::Migration[6.0]
       t.integer :sixth_player_id
       t.integer :seventh_player_id
       t.integer :eighth_player_id
-      t.integer :nineth_layer_id
+      t.integer :ninth_player_id
       t.timestamps
     end
   end

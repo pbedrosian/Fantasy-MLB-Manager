@@ -10,7 +10,9 @@ class LineupsController < ApplicationController
     end
 
     def create
-        new_lineup = Lineup.new(lineup_params)
+        new_lineup = Lineup.new(lineups_params)
+        binding.pry
+
         new_lineup.save
     end
 
@@ -20,7 +22,7 @@ class LineupsController < ApplicationController
         @lineup = Lineup.find_by_id(params[:id])
     end
 
-    def lineup_params
+    def lineups_params
         params.require(:lineup).permit(
             :game_id,
             :first_player_id,
@@ -31,7 +33,7 @@ class LineupsController < ApplicationController
             :sixth_player_id,
             :seventh_player_id,
             :eighth_player_id,
-            :nineth_layer_id
+            :ninth_player_id
         )
     end
 end

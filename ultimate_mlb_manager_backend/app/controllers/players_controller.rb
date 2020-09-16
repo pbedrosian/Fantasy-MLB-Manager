@@ -26,7 +26,7 @@ class PlayersController < ApplicationController
     end
 
     def update_stats
-
+        
     end
 
 end
