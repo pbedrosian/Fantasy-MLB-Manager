@@ -54,6 +54,4 @@ class Player {
         return Object.entries(this).slice(8)
     }
 
-
-
 }
