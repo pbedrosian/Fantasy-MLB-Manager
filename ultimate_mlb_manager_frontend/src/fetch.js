@@ -6,6 +6,7 @@ function loadPlayers() {
    }
 
 function addLineup(players) {
+    debugger
     fetch(LINEUPS, {
         method: "POST",
         headers: {

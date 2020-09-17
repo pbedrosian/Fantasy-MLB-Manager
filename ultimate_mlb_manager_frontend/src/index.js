@@ -5,6 +5,8 @@ const PLAYERS = BASE_URL + "/players",
  SEARCH = BASE_URL + '/players/search/',
  TODAYS_GAME = BASE_URL + "/games/today"
 
+let game_id = null
+
 const LIST = document.getElementById('playerList')
 
 document.addEventListener('DOMContentLoaded', startUp)
@@ -17,5 +19,6 @@ function startUp() {
 }
 
 function displayGame(obj) {
-    debugger
+    document.getElementById('currentGame').innerText = `Set Lineup VS. ${obj.team_against}`
+    game_id = obj.id
 }

@@ -1,5 +1,7 @@
 class Lineup {
-    static save() {
+
+
+    static save(game_id) {
         let result = {}
         const keys = ['first_player_id',
             'second_player_id',
@@ -11,10 +13,10 @@ class Lineup {
             'eighth_player_id',
             'ninth_player_id']
     
-    keys.forEach((key, i) => result[key] = newLineup[i]);
+        keys.forEach((key, i) => result[key] = newLineup[i]);
 
-    result.game_id = 44
-    // console.log(result)
-    addLineup(result)
+        result.game_id = game_id
+        addLineup(result)
     }
+
 }
