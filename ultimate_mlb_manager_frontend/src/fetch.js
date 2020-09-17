@@ -35,3 +35,8 @@ function loadGames() {
     }
   })
  }
+
+ function todaysGame() {
+    fetch(TODAYS_GAME)
+    .then(responce => responce.json()).then(value => displayGame(value))
+ }

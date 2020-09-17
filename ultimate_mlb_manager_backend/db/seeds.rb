@@ -18,7 +18,7 @@ game_data["games"].each do |g|
         home_game = true
     end
 
-    date = g["schedule"]["startTime"]
+    date = g["schedule"]["startTime"].to_time.in_time_zone("America/New_York")
 
     game = Game.new(team_against: versus, home_game: home_game, date: date)
     game.save(validate: false)

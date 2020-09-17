@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get '/games', to: 'games#index'
   get '/players/search/:position', to: 'players#search'
 
-
+  get '/games/today', to: 'games#today'
 end

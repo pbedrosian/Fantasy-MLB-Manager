@@ -4,6 +4,8 @@ class GamesController < ApplicationController
         render json: games
     end
 
-    def show
+    def today
+        game = Game.todays_game
+        render json: game
     end
 end
