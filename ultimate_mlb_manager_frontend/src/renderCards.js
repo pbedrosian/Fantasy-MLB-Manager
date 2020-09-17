@@ -3,6 +3,9 @@ const bodySection = document.querySelector('body')
 const cardDiv = document.createElement('div')
 cardDiv.setAttribute('id', 'cards')
 
+let newLineup = []
+
+
 function createAndDisplayPlayers(arr) {
   for (const player of arr) {
     let [id, firstName, lastName, primary_position, number, bats, throws, image] = Object.values(player)
@@ -16,8 +19,10 @@ function createAndDisplayPlayers(arr) {
 
 
 function renderPlayerCards(arr) {
+
     for (const player of arr) {
-  
+      let cards = document.getElementById('cards')
+      // removeAllChildNodes()
       let [id, firstName, lastName, primary_position, number, bats, throws, image, avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip ] = Object.values(player)
 
       const figure = document.createElement('figure')
@@ -100,8 +105,6 @@ function renderPlayerCards(arr) {
     }
  }
 
-const newLineup = []
-
 // Added player to lineup menu
 
 function addToLineup (e) {
@@ -136,6 +139,16 @@ function maxLineup() {
   } else {
     console.log("Cancelled submit.")
   }
+}
+
+function clearList() {
+  newLineup = []
+  const list = document.getElementById('playerList')
+  while (list.firstChild) {
+      list.removeChild(list.firstChild);
+  }
+  let buttons = document.querySelectorAll('.myBtn')
+  buttons.forEach(btn => btn.disabled = false)
 }
 
 

@@ -22,6 +22,7 @@ function addLineup(players) {
             renderPlayerCards(Player.allPlayers)
         }
     })
+    clearList()
 }
 
 function loadGames() {
@@ -33,5 +34,4 @@ function loadGames() {
       new Game(id, vs, homeGame, date)
     }
   })
-  console.log(Game.allGames)
  }

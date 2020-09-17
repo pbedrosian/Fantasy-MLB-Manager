@@ -4,6 +4,8 @@ const PLAYERS = BASE_URL + "/players",
  GAMES = BASE_URL + "/games", 
  SEARCH = BASE_URL + '/players/search/'
 
+const LIST = document.getElementById('playerList')
+
 document.addEventListener('DOMContentLoaded', startUp)
 
 
@@ -11,3 +13,4 @@ function startUp() {
     loadPlayers()
     loadGames()
 }
+

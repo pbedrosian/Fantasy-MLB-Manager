@@ -11,7 +11,7 @@ class LineupsController < ApplicationController
 
     def create
         new_lineup = Lineup.new(lineups_params)
-        new_lineup.save
+        render json: new_lineup.save ? new_lineup : {message: new_lineup.errors.full_messages}
     end
 
     private
