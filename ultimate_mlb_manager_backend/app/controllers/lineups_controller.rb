@@ -14,6 +14,11 @@ class LineupsController < ApplicationController
         render json: new_lineup.save ? new_lineup : {message: new_lineup.errors.full_messages}
     end
 
+    def last
+        lineup = Lineup.last
+        render json: lineup
+    end
+
     private
 
     def get_lineup

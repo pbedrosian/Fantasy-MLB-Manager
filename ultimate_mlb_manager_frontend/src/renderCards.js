@@ -22,7 +22,6 @@ function renderPlayerCards(arr) {
 
     for (const player of arr) {
       let cards = document.getElementById('cards')
-      // removeAllChildNodes()
       let [id, firstName, lastName, primary_position, number, bats, throws, image, avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip ] = Object.values(player)
 
       const figure = document.createElement('figure')
@@ -73,11 +72,9 @@ function renderPlayerCards(arr) {
       button.setAttribute('id', id)
       button.addEventListener('click', addToLineup) // calls below function
 
-
       figcaption.appendChild(button)
-
-  
     }
+    todaysGame()
    }
 
    function generateStats(arr, table) {
@@ -150,6 +147,20 @@ function clearList() {
   let buttons = document.querySelectorAll('.myBtn')
   buttons.forEach(btn => btn.disabled = false)
 }
+
+function displayGame(obj) {
+  if (typeof obj !== "undefined") {
+      document.getElementById('currentGame').innerText = `Welcome! Set Lineup VS. ${obj.team_against}`
+      game_id = obj.id
+  } else {
+      document.getElementById('currentGame').innerText = 'No game today. Check back tomorrow'
+      let buttons = document.getElementsByTagName('button')
+      for (const b of buttons) {
+          b.style.display = "none"
+      };
+  }
+}
+
 
 
  

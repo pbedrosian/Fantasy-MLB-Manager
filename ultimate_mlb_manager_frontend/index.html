@@ -24,21 +24,25 @@
     <a onclick="Player.filterPlayers('LF')">LF</a>
     <a onclick="Player.filterPlayers('CF')">CF</a>
     <a onclick="Player.filterPlayers('RF')">RF</a>
-    <a style="float:right">Past Lineups </a>
+    <a onclick="loadLineups()" style="float:right">Past Lineups </a>
     <a onclick="openNav()" style="float: right">Current Lineup</a>
   </div>
   <br>
   <img src="assets/images/dodgers_logo.png">
   <br>
-  <h1 id="currentGame">Display game if there is a one being played that day</h1>
+  <h1 id="currentGame"></h1>
   <br>
+  <div class="lineups">
+
+  </div>
+
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ol id='playerList'>
-
     </ol>
     <button onclick="Lineup.save(game_id)">Save Lineup</button>
   </div>
+  
   
   <script>
   function openNav() {
@@ -49,5 +53,6 @@
     document.getElementById("mySidenav").style.width = "0";
   }
   </script>
+
 </body>
 </html>
