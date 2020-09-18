@@ -150,8 +150,18 @@ function clearList() {
 
 function displayGame(obj) {
   if (typeof obj !== "undefined") {
-      document.getElementById('currentGame').innerText = `Welcome! Set Lineup VS. ${obj.team_against}`
+      let game = document.getElementById('currentGame')
+      game.innerText = `Welcome! Set Lineup VS. ${obj.team_against}`
+
+      let date = document.createElement('h5')
+      let newDate = obj.date
+      let d = new Date(newDate);
+      date.innerText = d.toDateString();
       game_id = obj.id
+
+      game.appendChild(date)
+
+
   } else {
       document.getElementById('currentGame').innerText = 'No game today. Check back tomorrow'
       let buttons = document.getElementsByTagName('button')
