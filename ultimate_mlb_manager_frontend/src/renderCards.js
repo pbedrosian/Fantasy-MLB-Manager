@@ -186,6 +186,8 @@ let toggleCards = () => {
       l.classList.add('isDisabled')
     }
     lineup.classList.add('active')
+    lineup.innerText = "Set Lineup"
+
 
   } else {
     todaysGame()
@@ -195,6 +197,7 @@ let toggleCards = () => {
       l.classList.remove('isDisabled')
     }
     lineup.classList.remove('active')
+    lineup.innerText = "Past Lineups"
 
   }
 }

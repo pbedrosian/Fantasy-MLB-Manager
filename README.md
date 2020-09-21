@@ -12,21 +12,40 @@ This app is built using a RoR backend and a Vanilla JS frontend. The Database us
 I used Rails to build an API that my front end can pull from. Using the data seeded in from another API, the front end send fetch requests to the Rails API which displays and saved data back into the database. 
 
 ### Frontend: Vanilla JS
-I went ahead used Vanilla JS to create requests to the DB when the DOM content is loaded, then create objects with the data so not to slow down with cobtinual fetch requests. 
+I went ahead used Vanilla JS to create requests to the DB when the DOM content is loaded, then create objects with the data so not to slow down with continual fetch requests. 
+
+### Getting Started:
+
+* Clone the repository
+
+* cd into the backend folder
+```
+cd ultimate_mlb_manager_backend
+```
 
 
-* Ruby version - Rails 6.0.3.2
+* Bundle the gems 
+```
+bundle instal
+```
 
-* System dependencies
+* Add .env file to backend directory. 
 
-* Configuration
+* Add API key to .env file. 
 
-* Database creation 
+* Run migrations to build tables
+```
+rake db:migrate
+```
 
-* Database initialization
+* Seed database 
+```
+rake db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Start up the Rails server
+```
+rails s
+```
 
-* Deployment instructions
-
-* ...
+* Open index.html in your browser
