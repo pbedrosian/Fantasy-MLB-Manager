@@ -2,7 +2,7 @@
 
 function loadPlayers() {
     fetch(PLAYERS)
-    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values))//.then(todaysGame) // remove last .then for testing
+    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values)).then(todaysGame) // remove last .then for testing
    }
 
 function addLineup(players) {
