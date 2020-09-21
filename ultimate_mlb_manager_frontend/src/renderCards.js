@@ -131,7 +131,6 @@ function getAllPlayers() {
 
 function maxLineup() {
   if (confirm("You have maxed your lineup. Do you want to submit it now?")) {
-    console.log("Lineup has been submitted.")
     openNav()
   } else {
     console.log("Cancelled submit.")

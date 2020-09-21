@@ -1,5 +1,9 @@
-function displayLineup(lineup) {   
-
+function displayLineup() {  
+let div = document.querySelector('.lineups')
+let lineup = Lineup.allLineups.reverse()
+while (div.firstChild) {
+    div.removeChild(div.firstChild);
+}
     for (const l of lineup) {
         let cards = document.querySelector('.lineups')
 

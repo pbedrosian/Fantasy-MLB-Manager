@@ -23,10 +23,9 @@ I went ahead used Vanilla JS to create requests to the DB when the DOM content i
 cd ultimate_mlb_manager_backend
 ```
 
-
 * Bundle the gems 
 ```
-bundle instal
+bundle install
 ```
 
 * Add .env file to backend directory. 

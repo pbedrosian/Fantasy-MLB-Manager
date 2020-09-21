@@ -33,7 +33,10 @@ class Lineup {
     
         keys.forEach((key, i) => result[key] = newLineup[i]);
 
-        result.game_id = game_id
+        // result.game_id = game_id // toggle off for testing
+
+        result.game_id = 55 // toggele on for testing
+
         addLineup(result)
     }
 

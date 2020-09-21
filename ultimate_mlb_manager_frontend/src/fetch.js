@@ -2,7 +2,7 @@
 
 function loadPlayers() {
     fetch(PLAYERS)
-    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values)).then(todaysGame)
+    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values))//.then(todaysGame) // remove last .then for testing
    }
 
 function addLineup(players) {
@@ -19,17 +19,18 @@ function addLineup(players) {
         if (obj.message) {
             alert(obj.message)
         } else {
-            new Lineup(obj.game, 
+            let newLinup = new Lineup(obj.game, 
                 obj.first_player, 
                 obj.second_player, obj.third_player, 
                 obj.fourth_player, obj.fifth_player, 
-                obj.sixth_player, obj.sixth_player, 
-                obj.seventh_player, obj.eighth_player, 
-                obj.ninth_player)
+                obj.sixth_player, obj.seventh_player, 
+                obj.eighth_player, obj.ninth_player)
             renderPlayerCards(Player.allPlayers)
+            let arr = new Array(newLinup)
+            displayLineup()
+
         }
-    })
-    clearList()
+    }).then(clearList)
 }
 
 function loadGames() {
@@ -52,11 +53,11 @@ function loadGames() {
 function loadLineups() {
     fetch(LINEUPS)
     .then(responce => responce.json()).then(value => {
-        for (const lineup of value.reverse()) {
+        for (const lineup of value) {
             let [game, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth] = Object.values(lineup)
             new Lineup(game, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth)
         }
-        displayLineup(Lineup.allLineups)
+        displayLineup()
     }
     )
 }
