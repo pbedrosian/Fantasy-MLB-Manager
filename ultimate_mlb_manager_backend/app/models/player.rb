@@ -22,7 +22,7 @@ class Player < ApplicationRecord
         api = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json?team=lad"
         player_data = HTTParty.get(api)
         
-
+        
     end
 
 end

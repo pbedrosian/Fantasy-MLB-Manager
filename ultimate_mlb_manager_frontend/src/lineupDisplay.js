@@ -1,7 +1,5 @@
-function displayLineup(lineup) {
-    document.querySelector('#cards').style.display = "none"
-    document.querySelector('#currentGame').innerText = "Past Lineups:"
-    
+function displayLineup(lineup) {   
+
     for (const l of lineup) {
         let cards = document.querySelector('.lineups')
 
@@ -40,10 +38,8 @@ function displayLineup(lineup) {
         figcaption.appendChild(ol)
 
         cards.appendChild(figure)
+        cards.style.display = "none"
     }
 
  }  
 
- function clear() {
-     document.reload()
- }

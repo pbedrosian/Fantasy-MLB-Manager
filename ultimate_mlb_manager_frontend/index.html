@@ -16,18 +16,18 @@
 
 <body>
   <div class="topnav">
-    <a class="active" onclick="Player.showAll()">All Players</a>
-    <a onclick="Player.filterPlayers('P')">P</a>
-    <a onclick="Player.filterPlayers('C')">C</a>
-    <a onclick="Player.filterPlayers('B1')">1B</a>
-    <a onclick="Player.filterPlayers('B2')">2B</a>
-    <a onclick="Player.filterPlayers('B3')">3B</a>
-    <a onclick="Player.filterPlayers('SS')">SS</a>
-    <a onclick="Player.filterPlayers('LF')">LF</a>
-    <a onclick="Player.filterPlayers('CF')">CF</a>
-    <a onclick="Player.filterPlayers('RF')">RF</a>
-    <a onclick="loadLineups()" style="float:right">Past Lineups </a>
-    <a onclick="openNav()" style="float: right">Current Lineup</a>
+    <a class="active navLink" onclick="Player.showAll()">All Players</a>
+    <a onclick="Player.filterPlayers('P')" class="navLink">P</a>
+    <a onclick="Player.filterPlayers('C')" class="navLink">C</a>
+    <a onclick="Player.filterPlayers('B1')" class="navLink">1B</a>
+    <a onclick="Player.filterPlayers('B2')" class="navLink">2B</a>
+    <a onclick="Player.filterPlayers('B3')" class="navLink">3B</a>
+    <a onclick="Player.filterPlayers('SS')" class="navLink">SS</a>
+    <a onclick="Player.filterPlayers('LF')" class="navLink">LF</a>
+    <a onclick="Player.filterPlayers('CF')" class="navLink">CF</a>
+    <a onclick="Player.filterPlayers('RF')" class="navLink">RF</a>
+    <a onclick="toggleCards()" style="float:right" class="lineup">Past Lineups </a>
+    <a onclick="openNav()" style="float: right" class="navLink">Current Lineup</a>
   </div>
   <br>
   <img src="assets/images/dodgers_logo.png">

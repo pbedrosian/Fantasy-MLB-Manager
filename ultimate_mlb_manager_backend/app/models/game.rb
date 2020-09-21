@@ -5,8 +5,6 @@ class Game < ApplicationRecord
     def self.todays_game
         if self.find{|g| g.date.to_date == Time.now.to_date }
             self.find{|g| g.date.to_date == Time.now.to_date }
-        else 
-            "no games today"
         end
     end
     

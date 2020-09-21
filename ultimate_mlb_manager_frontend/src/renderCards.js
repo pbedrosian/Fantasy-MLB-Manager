@@ -3,6 +3,8 @@ const bodySection = document.querySelector('body')
 const cardDiv = document.createElement('div')
 cardDiv.setAttribute('id', 'cards')
 
+let buttons = document.getElementsByTagName('button')
+
 let newLineup = []
 
 
@@ -74,7 +76,6 @@ function renderPlayerCards(arr) {
 
       figcaption.appendChild(button)
     }
-    todaysGame()
    }
 
    function generateStats(arr, table) {
@@ -115,7 +116,6 @@ function addToLineup (e) {
       document.getElementById('playerList').appendChild(player)
       e.target.disabled = true;
       e.target.innerText = 'In Lineup'
-      console.log(e.target.parentElement.firstChild.innerText + " - " + e.target.id)
     } else {
       console.log('You have maxed your lineup')
       maxLineup()
@@ -131,7 +131,7 @@ function getAllPlayers() {
 
 function maxLineup() {
   if (confirm("You have maxed your lineup. Do you want to submit it now?")) {
-    console.log("Lineup for ```ADD GAME``` has been submitted.")
+    console.log("Lineup has been submitted.")
     openNav()
   } else {
     console.log("Cancelled submit.")
@@ -149,7 +149,8 @@ function clearList() {
 }
 
 function displayGame(obj) {
-  if (typeof obj !== "undefined") {
+
+  if (obj != null) {
       let game = document.getElementById('currentGame')
       game.innerText = `Welcome! Set Lineup VS. ${obj.team_against}`
 
@@ -161,15 +162,46 @@ function displayGame(obj) {
 
       game.appendChild(date)
 
-
   } else {
       document.getElementById('currentGame').innerText = 'No game today. Check back tomorrow'
-      let buttons = document.getElementsByTagName('button')
       for (const b of buttons) {
           b.style.display = "none"
       };
+
   }
 }
+
+let toggleCards = () => {
+  const playerCards = document.querySelector('#cards')
+  const lineupCards = document.querySelector('.lineups')
+  const header = document.querySelector('#currentGame')
+  const links = document.querySelectorAll('.navLink')
+  const lineup = document.querySelector('.lineup')
+
+  if (playerCards.style.display != "none") {
+    header.innerText = "Past Games:"
+    playerCards.style.display = "none "
+    lineupCards.style.display = ""
+    for (const l of links) {
+      l.classList.add('isDisabled')
+    }
+    lineup.classList.add('active')
+
+  } else {
+    todaysGame()
+    lineupCards.style.display = "none"
+    playerCards.style.display = ""
+    for (const l of links) {
+      l.classList.remove('isDisabled')
+    }
+    lineup.classList.remove('active')
+
+  }
+}
+
+
+
+
 
 
 

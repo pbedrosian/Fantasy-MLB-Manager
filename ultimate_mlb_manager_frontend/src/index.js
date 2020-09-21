@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', startUp)
 function startUp() {
     loadPlayers()
     loadGames()
+    loadLineups()
 }
+
+
 
 

@@ -1,5 +1,23 @@
 class Lineup {
 
+    static allLineups =[]
+
+    constructor(game, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth) {
+        this.game = game
+        this.first = first
+        this.second = second
+        this.third = third
+        this.fourth = fourth
+        this.fifth = fifth
+        this.sixth = sixth
+        this.seventh = seventh
+        this.eighth = eighth
+        this.ninth = ninth
+        Lineup.allLineups.push(this)
+    }
+
+
+
 
     static save(game_id) {
         let result = {}

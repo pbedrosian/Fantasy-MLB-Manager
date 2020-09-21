@@ -2,11 +2,10 @@
 
 function loadPlayers() {
     fetch(PLAYERS)
-    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values))
+    .then(responce => responce.json()).then(values => createAndDisplayPlayers(values)).then(todaysGame)
    }
 
 function addLineup(players) {
-    debugger
     fetch(LINEUPS, {
         method: "POST",
         headers: {
@@ -20,6 +19,13 @@ function addLineup(players) {
         if (obj.message) {
             alert(obj.message)
         } else {
+            new Lineup(obj.game, 
+                obj.first_player, 
+                obj.second_player, obj.third_player, 
+                obj.fourth_player, obj.fifth_player, 
+                obj.sixth_player, obj.sixth_player, 
+                obj.seventh_player, obj.eighth_player, 
+                obj.ninth_player)
             renderPlayerCards(Player.allPlayers)
         }
     })
@@ -42,10 +48,18 @@ function loadGames() {
     .then(responce => responce.json()).then(value => displayGame(value))
  }
 
- function loadLineups() {
+
+function loadLineups() {
     fetch(LINEUPS)
-    .then(responce => responce.json()).then(value => displayLineup(value.reverse()))
- }
+    .then(responce => responce.json()).then(value => {
+        for (const lineup of value.reverse()) {
+            let [game, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth] = Object.values(lineup)
+            new Lineup(game, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth)
+        }
+        displayLineup(Lineup.allLineups)
+    }
+    )
+}
 
 
 
