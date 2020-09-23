@@ -11,6 +11,8 @@ let game_id = null
 const LIST = document.getElementById('playerList')
 
 document.addEventListener('DOMContentLoaded', startUp)
+// document.addEventListener('DOMContentLoaded', renderHomepage)
+
 
 
 function startUp() {
@@ -19,6 +21,11 @@ function startUp() {
     loadLineups()
 }
 
+let clearChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+}
 
 
 
