@@ -37,7 +37,7 @@ dodgers.each do |p|
 
     # player data
     changedBases = ['1B', '2B', '3B']
-
+    api_id = p["player"]["id"]
     first_name = p["player"]["firstName"]
     last_name = p["player"]["lastName"]
     if changedBases.include?(p["player"]["primaryPosition"])
@@ -57,7 +57,7 @@ dodgers.each do |p|
         image = p["player"]["officialImageSrc"]
     end
 
-    player = Player.new(
+    player = Player.new(api_id: api_id,
     first_name: first_name,
     last_name: last_name,
     primary_position: primary_position,

@@ -2,10 +2,12 @@ class PlayersController < ApplicationController
     before_action :set_player, only: :show
 
     def home
+        Player.find_or_update
         render json: "this is home"
     end
 
     def index
+        Player.find_or_update
         players = Player.all
 
         render json: players
