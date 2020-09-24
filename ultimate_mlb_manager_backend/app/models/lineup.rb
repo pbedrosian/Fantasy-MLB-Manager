@@ -17,4 +17,9 @@ class Lineup < ApplicationRecord
         end
     end
 
+    private
+
+    def pick_quota
+    end
+
 end
