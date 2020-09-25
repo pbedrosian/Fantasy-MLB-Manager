@@ -10,11 +10,15 @@ let newLineup = []
 
 function createAndDisplayPlayers(arr) {
   for (const player of arr) {
+    
     let [id, firstName, lastName, primary_position, number, bats, throws, image] = Object.values(player)
-    let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+    // let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+    let [avg, hits, runs, hr, rbi, obp, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+
 
     let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
-    avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip) 
+    avg, runs, hits, hr, rbi, obp, sp, wins, losses, era, so, saves, whip) 
+    debugger
   }
   renderPlayerCards(Player.allPlayers)
 }
@@ -108,9 +112,9 @@ function renderPlayerCards(arr) {
 function addToLineup (e) {
     e.preventDefault()
     const player = document.createElement('li')
+    let close = document.createElement('span')
 
     if (newLineup.length < 9) {
-      // addedPlayer = Player.allPlayers.find(x => x.id == e.target.id)
       newLineup.push(parseInt(e.target.id))
       player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
       document.getElementById('playerList').appendChild(player)
