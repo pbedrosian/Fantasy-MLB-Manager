@@ -18,7 +18,6 @@ function createAndDisplayPlayers(arr) {
 
     let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
     avg, runs, hits, hr, rbi, obp, sp, wins, losses, era, so, saves, whip) 
-    debugger
   }
   renderPlayerCards(Player.allPlayers)
 }
@@ -117,6 +116,8 @@ function addToLineup (e) {
     if (newLineup.length < 9) {
       newLineup.push(parseInt(e.target.id))
       player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
+      player.setAttribute('id', e.target.id)
+      player.addEventListener('click', removePlayer)
       document.getElementById('playerList').appendChild(player)
       e.target.disabled = true;
       e.target.innerText = 'In Lineup'
@@ -124,8 +125,8 @@ function addToLineup (e) {
       console.log('You have maxed your lineup')
       maxLineup()
       console.log(newLineup)
-    };
-  
+    }
+    closeNav()
 }
 
 function getAllPlayers() {
@@ -152,7 +153,6 @@ function clearList() {
 }
 
 function displayGame(obj) {
-
   if (obj != null) {
       let game = document.getElementById('currentGame')
       game.innerText = `Welcome! Set Lineup VS. ${obj.team_against}`
@@ -203,6 +203,13 @@ let toggleCards = () => {
     lineup.innerText = "Past Lineups"
 
   }
+}
+
+const removePlayer = (e) => {
+  let index = newLineup.indexOf(e.target.id);
+  newLineup.splice(index, 1)
+  e.target.remove()
+  openNav()
 }
 
 
