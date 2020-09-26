@@ -1,7 +1,9 @@
 class Player {
     static allPlayers = []
 
-    constructor(id, firstName, lastName, primary_position, number, bats, throws, image, avg, runs, hits, homeruns, rbi, obs, sp, wins, losses, era, so, saves, whip) {
+    constructor(id, firstName, lastName, primary_position, number, bats, throws, 
+                image, avg, runs, hits, homeruns, rbi, obs, sp, wins, losses, era, 
+                so, saves, whip) {
         this.id = id
         this.firstName = firstName
         this.lastName = lastName

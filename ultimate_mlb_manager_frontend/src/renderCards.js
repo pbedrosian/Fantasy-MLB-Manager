@@ -10,11 +10,14 @@ let newLineup = []
 
 function createAndDisplayPlayers(arr) {
   for (const player of arr) {
+    
     let [id, firstName, lastName, primary_position, number, bats, throws, image] = Object.values(player)
-    let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+    // let [avg, hits, runs, hr, rbi, obs, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+    let [avg, hits, runs, hr, rbi, obp, sp, wins, losses, era, so, saves, whip] = Object.values(player.stats[0])
+
 
     let newPlayer = new Player(id, firstName, lastName, primary_position, number, bats, throws, image,
-    avg, runs, hr, hits, rbi, obs, sp, wins, losses, era, so, saves, whip) 
+    avg, runs, hits, hr, rbi, obp, sp, wins, losses, era, so, saves, whip) 
   }
   renderPlayerCards(Player.allPlayers)
 }
@@ -108,11 +111,13 @@ function renderPlayerCards(arr) {
 function addToLineup (e) {
     e.preventDefault()
     const player = document.createElement('li')
+    let close = document.createElement('span')
 
     if (newLineup.length < 9) {
-      // addedPlayer = Player.allPlayers.find(x => x.id == e.target.id)
       newLineup.push(parseInt(e.target.id))
       player.innerText = e.target.parentElement.firstChild.innerText + " - " + e.target.parentElement.children[1].innerText
+      player.setAttribute('id', e.target.id)
+      player.addEventListener('click', removePlayer)
       document.getElementById('playerList').appendChild(player)
       e.target.disabled = true;
       e.target.innerText = 'In Lineup'
@@ -120,8 +125,8 @@ function addToLineup (e) {
       console.log('You have maxed your lineup')
       maxLineup()
       console.log(newLineup)
-    };
-  
+    }
+    closeNav()
 }
 
 function getAllPlayers() {
@@ -148,7 +153,6 @@ function clearList() {
 }
 
 function displayGame(obj) {
-
   if (obj != null) {
       let game = document.getElementById('currentGame')
       game.innerText = `Welcome! Set Lineup VS. ${obj.team_against}`
@@ -199,6 +203,13 @@ let toggleCards = () => {
     lineup.innerText = "Past Lineups"
 
   }
+}
+
+const removePlayer = (e) => {
+  let index = newLineup.indexOf(e.target.id);
+  newLineup.splice(index, 1)
+  e.target.remove()
+  openNav()
 }
 
 
