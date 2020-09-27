@@ -111,6 +111,8 @@ function renderPlayerCards(arr) {
 function addToLineup (e) {
     e.preventDefault()
     const player = document.createElement('li')
+    player.setAttribute('style', 'cursor: pointer;')
+    player.setAttribute('title', 'Click to remove player.')
     let close = document.createElement('span')
 
     if (newLineup.length < 9) {
@@ -121,6 +123,7 @@ function addToLineup (e) {
       document.getElementById('playerList').appendChild(player)
       e.target.disabled = true;
       e.target.innerText = 'In Lineup'
+      openNav()
     } else {
       console.log('You have maxed your lineup')
       maxLineup()
@@ -209,6 +212,7 @@ const removePlayer = (e) => {
   let index = newLineup.indexOf(e.target.id);
   newLineup.splice(index, 1)
   e.target.remove()
+  document.querySelector(`button[id="${e.target.id}"]`).disabled = false
   openNav()
 }
 
