@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .card:hover {
-  transform: scale(1.1); 
-  box-shadow: 5px 10px 18px #1CB5E0;
+  transform: scale(1.05); 
+  box-shadow: 5px 10px 18px #044484;
 }
 

@@ -209,7 +209,7 @@ let toggleCards = () => {
 }
 
 const removePlayer = (e) => {
-  let index = newLineup.indexOf(e.target.id);
+  let index = newLineup.indexOf(parseInt(e.target.id));
   newLineup.splice(index, 1)
   e.target.remove()
   document.querySelector(`button[id="${e.target.id}"]`).disabled = false
