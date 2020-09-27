@@ -1,4 +1,4 @@
-function displayLineup() {  
+let displayLineup = () => {  
 let div = document.querySelector('.lineups')
 let lineup = Lineup.allLineups.reverse()
 

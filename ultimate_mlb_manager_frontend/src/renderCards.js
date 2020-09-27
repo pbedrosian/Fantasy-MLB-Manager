@@ -148,11 +148,10 @@ function maxLineup() {
 function clearList() {
   newLineup = []
   const list = document.getElementById('playerList')
-  while (list.firstChild) {
-      list.removeChild(list.firstChild);
-  }
+  clearChildren(list)
   let buttons = document.querySelectorAll('.myBtn')
   buttons.forEach(btn => btn.disabled = false)
+  toggleCards()
 }
 
 function displayGame(obj) {
