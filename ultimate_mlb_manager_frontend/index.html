@@ -4,7 +4,11 @@
   <title>Ultimate MLB Manager </title>
   <link href="style.css" media="screen" rel="stylesheet" />
   <link href="menu.css" media="screen" rel="stylesheet" />
+  <link href="modal.css" media="screen" rel="stylesheet" />
+
   <script type="text/javascript" src="src/home.js"></script>
+  <script type="text/javascript" src="src/modal.js"></script>
+
   <script type="text/javascript" src="src/nav.js"></script>
   <script type="text/javascript" src="src/lineup.js"></script>
   <script type="text/javascript" src="src/player.js"></script>
@@ -45,6 +49,19 @@
     <ol id='playerList'>
     </ol>
     <button onclick="Lineup.save(game_id)" class = sB>Save Lineup</button>
+  </div>
+
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h1 class='vs'></h1>
+      <h3 class='date'></h3>
+      <ol class="lineupList" style='text-align: left;'>
+
+      </ol>
+    </div>
+
   </div>
   
 </body>

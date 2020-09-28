@@ -151,7 +151,7 @@ function clearList() {
   clearChildren(list)
   let buttons = document.querySelectorAll('.myBtn')
   buttons.forEach(btn => btn.disabled = false)
-  toggleCards()
+  // toggleCards()
 }
 
 function displayGame(obj) {

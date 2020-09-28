@@ -28,9 +28,8 @@ function addLineup(players) {
             renderPlayerCards(Player.allPlayers)
             let arr = new Array(newLinup)
             displayLineup()
-
         }
-    }).then(clearList)
+    }).then(openModal)
 }
 
 function loadGames() {
