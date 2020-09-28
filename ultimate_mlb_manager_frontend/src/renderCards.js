@@ -167,7 +167,7 @@ function displayGame(obj) {
 
       game.appendChild(date)
 
-  } else {
+  } else { // toggle this off for testing
       document.getElementById('currentGame').innerText = 'No game today. Check back tomorrow'
       for (const b of buttons) {
           b.style.display = "none"

@@ -10,7 +10,9 @@ class LineupsController < ApplicationController
     end
 
     def create
-        new_lineup = Lineup.new(lineups_params)
+        game = Game.todays_game #toggle off for testing 
+        # game = Game.find_by_id(59) # toggle off when live
+        new_lineup = game.build_lineup(lineups_params)
         render json: new_lineup.save ? new_lineup : {message: new_lineup.errors.full_messages}
     end
 
@@ -27,7 +29,7 @@ class LineupsController < ApplicationController
 
     def lineups_params
         params.require(:lineup).permit(
-            :game_id,
+            # :game_id,
             :first_player_id,
             :second_player_id,
             :third_player_id,
