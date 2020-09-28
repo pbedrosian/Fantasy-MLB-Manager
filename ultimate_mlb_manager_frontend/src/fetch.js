@@ -50,7 +50,7 @@ function loadGames() {
 
 
 function loadLineups() {
-    fetch(LINEUPS)
+    fetch(GAMES)
     .then(responce => responce.json()).then(value => {
         for (const lineup of value) {
             let [game, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth] = Object.values(lineup)

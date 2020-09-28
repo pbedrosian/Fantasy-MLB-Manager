@@ -10,9 +10,10 @@ class LineupsController < ApplicationController
     end
 
     def create
-        game = Game.todays_game #toggle off for testing 
-        # game = Game.find_by_id(59) # toggle off when live
-        new_lineup = game.build_lineup(lineups_params)
+        # game = Game.todays_game #toggle off for testing 
+        game = Game.find_by_id(59) # toggle off when live
+        # new_lineup = game.build_lineup(lineups_params) 
+        new_lineup = game.lineup.new(lineups_params)
         render json: new_lineup.save ? new_lineup : {message: new_lineup.errors.full_messages}
     end
 
