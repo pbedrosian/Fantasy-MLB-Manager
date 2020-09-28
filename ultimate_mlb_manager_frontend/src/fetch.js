@@ -18,6 +18,8 @@ function addLineup(players) {
     }).then(obj => {
         if (obj.message) {
             alert(obj.message)
+            closeNav()
+            clearList()
         } else {
             let newLinup = new Lineup(obj.game, 
                 obj.first_player, 
@@ -28,8 +30,9 @@ function addLineup(players) {
             renderPlayerCards(Player.allPlayers)
             let arr = new Array(newLinup)
             displayLineup()
+            openModal()
         }
-    }).then(openModal)
+    })
 }
 
 function loadGames() {

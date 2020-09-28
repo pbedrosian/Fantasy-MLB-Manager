@@ -11,6 +11,9 @@ class Lineup < ApplicationRecord
     belongs_to :eighth_player, class_name: "Player"
     belongs_to :ninth_player, class_name: "Player"
 
+    validates :game_id, :uniqueness => true
+
+
     def get_att
         self.attributes.map do |k,v| 
             self.send(k.sub("_id","").to_sym) if k.include?("_id") && k.include?("_player")
