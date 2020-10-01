@@ -19,7 +19,7 @@ class Lineup {
 
 
 
-    static save(game_id) {
+    static save() {
         let result = {}
         const keys = ['first_player_id',
             'second_player_id',
