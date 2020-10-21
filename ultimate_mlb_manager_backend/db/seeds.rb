@@ -3,7 +3,7 @@
 # Game.delete_all
 
 players = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/player_stats_totals.json?team=lad"
-games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/current/games.json?team=lad"
+games = "https://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/mlb/2020-2020-regular/games.json?team=lad"
 
 #start of games seed
 

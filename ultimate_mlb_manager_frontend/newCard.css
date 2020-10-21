@@ -1,0 +1,32 @@
+HTML CSSResult
+EDIT ON
+/* General */
+.main {
+  background-color: #D4E4F7;
+  height: 500px;
+  width: 600px;
+}
+
+.container {
+  margin: 5px;
+  width: 350px;
+  height: 100px;
+  border: 2px solid #341C09;
+  white-space: nowrap;
+}
+
+.item {
+  border: 2px solid #B85B14;
+  background-color: #FC7307;
+  width: 120px;
+}
+
+/* Flex */
+.flex {
+  display: flex;
+  flex-wrap: nowrap; 
+  overflow: auto;
+}
+.flex-item {
+  flex: 0 0 auto;
+}
