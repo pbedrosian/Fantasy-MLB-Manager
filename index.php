@@ -1,1 +1,1 @@
-<?php include_once("index.html"); ?>
+<?php include_once("ultimate_mlb_manager_frontend/index.html"); ?>
